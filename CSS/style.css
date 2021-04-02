@@ -1,15 +1,17 @@
 :root {
     /* Colors */
-    --yellow: #ffefd6;
-    --yellow-dark: #e6c86e;
+    --white: #fefefe;
+    --yellow-light: #faf4e1;
+    --yellow: #e6c86e;
     --blue: #A0E7E5;
-    --mint: #B4F8C8;
-    --mint-light: #ebfff1;
-    --mint-dark: #74d491;
+    --green: #52D452;
+    --green-light: #ccffcc;
+    --green-dark: #28A228;
     --pink: #FFAEBC;
-    --red: #fa5248;
-    --red-dark: #db342a;
+    --red: #FF3D33;
+    --red-dark: #D60B00;
     --black: #3d3d3b;
+    --gray: #808080;
 
     /* Font Size */
     --font-large: 48px;
@@ -26,8 +28,8 @@ body {
     margin: 0;
     padding: 0;
     cursor: default;
-    background-color: var(--yellow);
-    font-family: 'Indie Flower', Arial, Helvetica, sans-serif, cursive;
+    background-color: var(--white);
+    font-family: 'Varela Round', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,12 +38,29 @@ body {
 
 h1 {
     font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    margin: 2rem 0 0;
+}
+
+h2 {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 ul,
 li {
     list-style: none; 
     padding: 0;
+}
+
+header{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 input{
@@ -64,19 +83,25 @@ form {
     font-size: var(--font-regular);
     width: 50%;
     height: 2rem;
-    border: 1px solid var(--yellow-dark);
+    border: 1px solid var(--yellow);
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
+    padding-left: 20px;
 }
 
 .todo-button {
     width: 3rem;
-    height: 2.4rem;
-    background-color: var(--yellow-dark);
+    height: 2.3rem;
+    background-color: var(--yellow);
     color: white;
     font-size: var(--font-regular);
     border: 1px solid var(--yellow);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     transform: translateX(-10%);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
+    outline: none;
 }
 
 .todo-button:hover {
@@ -97,9 +122,10 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    border-radius: 5px;
-    padding: 1rem 0; 
+    background-color: var(--yellow-light);
+    border-radius: 10px;
+    padding: 1rem 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19);
 }
 
 .todo-item {
@@ -110,15 +136,16 @@ form {
     justify-content: space-between;
     align-items: center;
     margin: 0.4rem 0;
-    border: 1px solid var(--yellow);
+    /* border: 1px solid var(--yellow); */
     border-radius: 5px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .completed {
-    background-color: var(--mint-light);
+    background-color: var(--green-light);
     opacity: 0.5;
-    border-color: var(--mint-dark);
+    border-color: var(--green-dark);
 }
 
 .todo-text {
@@ -141,22 +168,24 @@ form {
     border-radius: 50%;
     cursor: pointer;
     margin-left: 10px;
-    box-shadow: 0px 0px 2px 0px var(--black);
-
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    color: white;
 }
 
 .todo-checked {
-    background-color: var(--mint);
-    border: 1px solid var(--mint-dark);
+    background-color: var(--green);
+    border: none;
 }
 
 .todo-checked:hover {
-    background-color: var(--mint-dark);
+    background-color: var(--green-dark);
 }
 
 .todo-remove {
     background-color: var(--red);
-    border: 1px solid var(--red-dark);
+    border: none;
 }
 
 .todo-remove:hover {
@@ -169,7 +198,7 @@ form {
 }
 
 .fall {
-    transform: translateY(8rem) rotateZ(10deg);
+    transform: translateY(4rem) rotateZ(5deg);
     opacity: 0;
 }
 
@@ -185,7 +214,9 @@ select {
     margin: 1rem;
     overflow: hidden;
     position: relative;
-    border: 1px solid var(--yellow-dark);
+    border: 1px solid var(--yellow);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
 }
 
 select {
@@ -193,6 +224,7 @@ select {
     width: 8rem;
     cursor: pointer;
     padding: 0.5rem;
+    border-radius: 10px;
 }
 
 .select:hover {
@@ -202,11 +234,12 @@ select {
 .select::after {
     content: "\25BC";
     position: absolute;
-    background-color: var(--yellow-dark);
-    border: 1px solid var(--yellow-dark);
+    width: 1.25rem;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
     top: 0;
     right: 0;
-    padding: 0.5rem;
+    padding: 0.3rem 0.25rem 0.3rem 0.5rem;
     pointer-events: none;
     color: white;
     transition: all 0.3s ease-in-out;
@@ -224,16 +257,20 @@ select {
         /* Font Size */
         --font-large: 28px;
         --font-medium: 16px;
-        --font-regular: 12px;
+        --font-regular: 14px;
     }
     
+    .todo-container {
+        width: 85%;
+    }
+
     .todo-checked,
     .todo-remove {
         width: 1.6rem;
         height: 1.6rem;
         border-radius: 50%;
         cursor: pointer;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .todo-btn-container{
@@ -250,6 +287,7 @@ select {
     }
 
     .select::after {
-        padding: 0.25rem 0.5rem 0.5rem;
+        padding: 0.5rem 0.1rem 0.4rem 0.5rem;
+        font-size: 0.8rem;
     }
 }
