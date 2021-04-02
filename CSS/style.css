@@ -125,7 +125,7 @@ form {
     background-color: var(--yellow-light);
     border-radius: 10px;
     padding: 1rem 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
 }
 
 .todo-item {
